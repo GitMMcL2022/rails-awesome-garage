@@ -1,5 +1,9 @@
 class FavouritesController < ApplicationController
+  def index
+    @favourites = Favourite.all
+  end
   def create
+
     @car = Car.find(params[:car_id])
     @favourite = Favourite.new
     @favourite.car = @car
