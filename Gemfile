@@ -38,6 +38,16 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+gem "bootstrap", "~> 5.2"
+
+gem "font-awesome-sass", "~> 6.1"
+
+gem "autoprefixer-rails"
+
+gem "simple_form"
+
+gem "sassc-rails"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -52,7 +62,7 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
+gem "hotwire-livereload"
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end

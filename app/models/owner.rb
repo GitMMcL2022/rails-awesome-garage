@@ -1,4 +1,4 @@
 class Owner < ApplicationRecord
 
-  validates :nicknmae, presence: true, uniqiueness :true
+  validates :nickname, presence: true, uniqueness: true
 end

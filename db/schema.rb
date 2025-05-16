@@ -22,8 +22,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_15_095427) do
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "owners_id"
-    t.index ["owners_id"], name: "index_cars_on_owners_id"
+    t.bigint "owner_id"
+    t.index ["owner_id"], name: "index_cars_on_owner_id"
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -44,11 +44,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_15_095427) do
     t.decimal "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "cars_id"
-    t.index ["cars_id"], name: "index_reviews_on_cars_id"
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_reviews_on_car_id"
   end
 
-  add_foreign_key "cars", "owners", column: "owners_id"
+  add_foreign_key "cars", "owners"
   add_foreign_key "favourites", "cars"
-  add_foreign_key "reviews", "cars", column: "cars_id"
+  add_foreign_key "reviews", "cars"
 end
