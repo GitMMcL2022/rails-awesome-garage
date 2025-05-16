@@ -2,14 +2,24 @@
 <h2> <%= @car.model %> </h2>
 <p> <%= @car.fuel %>
 <p> <%= @car.year %>
+
+<% if @car.favourites.empty? %>
+  <%= simple_form_for [@car, @favourite] do |f| %>
+    <%= f.submit 'Save in my garage' %>
+  <% end %>
+<% else %>
+  <p>This car is already in your garage</p>
+<% end %>
+
 <hr>
 <%= simple_form_for [@car, @review] do |f| %>
-<%= f.input :comment %>
-<%= f.input :rating, collection: 1..5 %>
-<%= f.submit %>
+  <%= f.input :comment %>
+  <%= f.input :rating, collection: 1..5 %>
+  <%= f.submit %>
 <% end %>
-<hr>
-<% @reviews.each do |review| %>
-<p><%= review.comment %> </p>
-<p><%= '' * review.rating %> </p>
+
+<% @car.reviews.each do |review|  %>
+  <p><%= review.comment %></>
+  <p><%= review.rating %></p>
+  --------------------------
 <% end %>
