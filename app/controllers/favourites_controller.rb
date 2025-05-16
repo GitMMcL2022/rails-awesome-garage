@@ -10,4 +10,8 @@ class FavouritesController < ApplicationController
       render 'cars/show'
     end
   end
+  def destroy
+    @favourite = Favourite.find(params[:id])
+    @favourite.destroyredirect_to favourites_path
+  end
 end
